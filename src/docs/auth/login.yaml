@@ -1,0 +1,38 @@
+User log in
+---
+tags:
+  - Authentication
+parameters:
+  - name: body
+    description: The body should contain the user login credentials
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "device_id"
+      properties:
+        device_id:
+          type: "device_id"
+          example: "123456789012345"
+responses:
+  200:
+    description: When a user succesfully logs in
+    schema:
+      type: object
+      required:
+        - "user"
+      properties:
+        user:
+          type: "user"
+          example: {
+            'device_id' : '123456789012345',
+            'access_token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmpPIi9UWnIdp-a2OQwN10cRN8',
+            'refresh_token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlh8'
+            }
+
+  400:
+    description: Fails to login due to bad request data
+
+  401:
+    description: A user supplies incorrect credentials

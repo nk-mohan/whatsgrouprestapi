@@ -1,0 +1,51 @@
+Get All Trending Whatsapp groups
+---
+tags:
+  - WhatsGroups
+parameters:
+  - name: page
+    description: Page number of the query
+    in: query
+    schema:
+      type: integer
+  - name: per_page
+    description: Page result number of the query
+    in: query
+    schema:
+      type: integer
+responses:
+  200:
+    description: All groups fetched succesfully.
+    schema:
+      type: object
+      required:
+        - "data"
+        - "meta"
+      properties:
+        data:
+          type: "data"
+          example: [
+           {
+              "id": 23,
+              "title": Stocks and Recomendations,
+              "description": This group used to give suggestions about stocks,
+              "link": https://web.whatsapp.com/kdaflkdflkadsjfdsajf,
+              "category": Stocks,
+              "views_count": 0,
+              "report_count": 0,
+              "created_at": Mon 25 2022
+           }
+          ]
+        meta:
+          type: "meta"
+          example: {
+            "current_page": 1,
+            "total_pages": 2,
+            "total_count": 23
+          }
+
+  400:
+    description: Fails to register user due to bad request data
+
+  401:
+    description: A user supplies incorrect credentials

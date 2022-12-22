@@ -1,0 +1,54 @@
+Create Whatsapp group
+---
+tags:
+  - WhatsGroups
+parameters:
+  - name: body
+    description: The body should contain the create group details
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "title"
+        - "description"
+        - "link"
+        - "category"
+      properties:
+        title:
+          type: "title"
+          example: "Stocks and Recomendations"
+        description:
+          type: "description"
+          example: "This group used to give suggestions about stocks"
+        link:
+          type: "link"
+          example: "https://web.whatsapp.com/kdaflkdflkadsjfdsajf"
+        category:
+          type: "category"
+          example: "Stocks"
+responses:
+  201:
+    description: When a group created succesfully
+    schema:
+      type: object
+      required:
+        - "id"
+        - "link"
+        - "created_at"
+      properties:
+        id:
+          type: "id"
+          example: "23"
+        link:
+          type: "link"
+          example: "https://web.whatsapp.com/kdaflkdflkadsjfdsajf"
+        created_at:
+          type: "created_at"
+          example: "Mon 25 2022"
+
+  400:
+    description: Fails to register user due to bad request data
+
+  401:
+    description: A user supplies incorrect credentials

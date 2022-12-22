@@ -1,0 +1,50 @@
+User registration
+---
+tags:
+  - Authentication
+parameters:
+  - name: body
+    description: The body should contain the user details
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "device_id"
+        - "device_os_version"
+        - "device_model"
+      properties:
+        device_id:
+          type: "device_id"
+          example: "123456789012345"
+        device_os_version:
+          type: "device_os_version"
+          example: "12"
+        device_model:
+          type: "device_model"
+          example: "Samsung M31s"
+responses:
+  201:
+    description: When a user succesfully register
+    schema:
+      type: object
+      required:
+        - "message"
+        - "user"
+      properties:
+        message:
+          type: "message"
+          example: "User Created"
+        user:
+          type: "user"
+          example: {
+            'device_id' : '123456789012345',
+            'access_token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmsIm5iZiI6MTY4Mjk3fQ.Xynxa2OQwN10cRN8',
+            'refresh_token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.Q.Xynx_0aoc4g12VD9KRUpPIi9UWnIdp-a2OQwN10cRN8'
+            }
+
+  400:
+    description: Fails to register user due to bad request data
+
+  401:
+    description: A user supplies incorrect credentials

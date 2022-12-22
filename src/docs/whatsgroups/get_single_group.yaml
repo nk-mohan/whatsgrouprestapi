@@ -1,0 +1,55 @@
+Get Whatsapp group by id
+---
+tags:
+  - WhatsGroups
+parameters:
+  - name: id
+    description: Id of the group
+    in: path
+    schema:
+      type: integer
+responses:
+  200:
+    description: Group fetched succesfully.
+    schema:
+      type: object
+      required:
+        - "id"
+        - "title"
+        - "description"
+        - "link"
+        - "category"
+        - "views_count"
+        - "report_count"
+        - "created_at"
+      properties:
+        id:
+          type: integer
+          example: 23
+        title:
+          type: string
+          example: "Stocks and Recommendations"
+        description:
+          type: string
+          example: "This group used to give stock recommendations"
+        link:
+          type: string
+          example: "https://web.whatsapp.com/dfjaljdsfdsjKdakjf"
+        category:
+          type: string
+          example: "Stocks"
+        views_count:
+          type: integer
+          example: 3
+        report_count:
+          type: integer
+          example: 5
+        created_at:
+          type: string
+          example: "Mon 25 2022"
+
+  400:
+    description: Fails to register user due to bad request data
+
+  401:
+    description: A user supplies incorrect credentials

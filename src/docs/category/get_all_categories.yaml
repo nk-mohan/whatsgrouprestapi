@@ -1,0 +1,26 @@
+Get All Categories of Whatsapp groups
+---
+tags:
+  - Categories
+responses:
+  200:
+    description: All categories fetched succesfully.
+    schema:
+      type: object
+      required:
+        - "categories"
+      properties:
+        categories:
+          type: "data"
+          example: [
+           {
+              "category_name": "Arts & Design",
+              "category_link": "https://miro.medium.com/max/1100/1*7oDHINwJnMkuVXABXq-7Ag.webp"
+           }
+          ]
+
+  400:
+    description: Fails to register user due to bad request data
+
+  401:
+    description: A user supplies incorrect credentials

@@ -1,0 +1,26 @@
+Refresh user token
+---
+tags:
+  - Authentication
+parameters:
+  - name: body
+    description: The body should contain the user token details
+    in: body
+    required: false
+responses:
+  201:
+    description: When a user refreshed succesfully
+    schema:
+      type: object
+      required:
+        - "access_token"
+      properties:
+        access_token:
+          type: "access_token"
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmsIm5iZiI6MTY4Mjk3fQ.Xynxa2OQwN10cRN8"
+
+  400:
+    description: Fails to register user due to bad request data
+
+  401:
+    description: A user supplies incorrect credentials

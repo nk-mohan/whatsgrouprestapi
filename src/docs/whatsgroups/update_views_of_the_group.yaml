@@ -1,0 +1,26 @@
+Update Whatsapp group viewed
+---
+tags:
+  - WhatsGroups
+parameters:
+  - name: id
+    description: Id of the group
+    in: path
+    schema:
+      type: integer
+responses:
+  201:
+    description: Group views updated succesfully.
+    schema:
+      type: object
+      required:
+        - "message"
+      properties:
+        message:
+          type: string
+          example: "Updated viewed status"
+  400:
+    description: Fails to register user due to bad request data
+
+  401:
+    description: A user supplies incorrect credentials
