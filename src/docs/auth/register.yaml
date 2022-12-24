@@ -15,13 +15,13 @@ parameters:
         - "device_model"
       properties:
         device_id:
-          type: "device_id"
+          type: string
           example: "123456789012345"
         device_os_version:
-          type: "device_os_version"
+          type: string
           example: "12"
         device_model:
-          type: "device_model"
+          type: string
           example: "Samsung M31s"
 responses:
   201:

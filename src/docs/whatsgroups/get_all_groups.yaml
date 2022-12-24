@@ -1,5 +1,7 @@
 Get All Whatsapp group
 ---
+security:
+  - Bearer: []
 tags:
   - WhatsGroups
 parameters:
