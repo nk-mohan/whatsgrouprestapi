@@ -33,8 +33,6 @@ def create_app(test_config=None):
     db.init_app(app)
 
     engine = create_engine(os.environ.get("SQLALCHEMY_DB_URI"))
-    if not database_exists(engine.url):
-      create_database(engine.url)
     engine.connect()
 
     JWTManager(app)
