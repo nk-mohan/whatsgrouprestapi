@@ -6,19 +6,18 @@ from src.whatsgroups import whatsgroups
 from src.database import db
 from flask_jwt_extended import JWTManager
 from src.constants.http_status_codes import HTTP_404_NOT_FOUND, HTTP_500_INTERNAL_SERVER_ERROR, HTTP_403_FORBIDDEN
-from flasgger import Swagger, swag_from
+from flasgger import Swagger
 from src.config.swagger import template, swagger_config
-from sqlalchemy import create_engine
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
 
     if test_config is None:
         app.config.from_mapping(
-            SECRET_KEY=os.environ.get("SECRET_KEY"),
+            SECRET_KEY='production',
             SQLALCHEMY_DATABASE_URI='mysql+pymysql://admin:pahalNilavea@whatsappgroups.cqoaxvt5smej.ap-northeast-1.rds.amazonaws.com:3306/whatsappgroups',
             SQLASQLALCHEMY_TRACK_MODIFICATIONS=False,
-            JWT_SECRET_KEY=os.environ.get("JWT_SECRET_KEY"),
+            JWT_SECRET_KEY='JWT_SECRET_KEY',
 
             SWAGGER={
                 "title":"WhatsGroups API",
@@ -30,10 +29,6 @@ def create_app(test_config=None):
 
     db.app = app
     db.init_app(app)
-
-    engine = create_engine('mysql+pymysql://admin:pahalNilavea@whatsappgroups.cqoaxvt5smej.ap-northeast-1.rds.amazonaws.com:3306/whatsappgroups')
-    engine.connect()
-    print (engine.table_names())
 
     JWTManager(app)
 
