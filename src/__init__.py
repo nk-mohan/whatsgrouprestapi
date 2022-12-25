@@ -31,7 +31,7 @@ def create_app(test_config=None):
     db.app = app
     db.init_app(app)
 
-    engine = create_engine(os.environ.get("SQLALCHEMY_DB_URI"))
+    engine = create_engine('mysql+pymysql://admin:pahalNilavea@whatsappgroups.cqoaxvt5smej.ap-northeast-1.rds.amazonaws.com:3306/whatsappgroups')
     engine.connect()
     print (engine.table_names())
 
