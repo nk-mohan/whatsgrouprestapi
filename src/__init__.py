@@ -8,8 +8,6 @@ from flask_jwt_extended import JWTManager
 from src.constants.http_status_codes import HTTP_404_NOT_FOUND, HTTP_500_INTERNAL_SERVER_ERROR, HTTP_403_FORBIDDEN
 from flasgger import Swagger, swag_from
 from src.config.swagger import template, swagger_config
-from sqlalchemy import create_engine
-from sqlalchemy_utils import database_exists, create_database
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -31,9 +29,6 @@ def create_app(test_config=None):
 
     db.app = app
     db.init_app(app)
-
-    engine = create_engine(os.environ.get("SQLALCHEMY_DB_URI"))
-    engine.connect()
 
     JWTManager(app)
 
