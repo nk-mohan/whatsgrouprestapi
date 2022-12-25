@@ -1,0 +1,323 @@
+Please find below major commands usefull to get access aws ec2 server
+================================================================
+
+1. To start virtualenv 
+-----------------------
+cd WhatsappGroups/whatsgrouprestapi/
+source my-project-env/bin/activate
+deactivate
+
+2. To get latest files from git
+-------------------------------
+cd WhatsappGroups/whatsgrouprestapi/
+git pull
+userName: nk-mohan
+password: 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
+
+3. Run flask api in local
+--------------------------
+cd WhatsappGroups/whatsgrouprestapi/
+source my-project-env/bin/activate
+gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+
+4. Start and Stop Flask server
+-------------------------------
+sudo systemctl restart WhatsappGroup_API.service
+sudo systemctl start WhatsappGroup_API.service
+sudo systemctl stop WhatsappGroup_API.service
+sudo systemctl status WhatsappGroup_API.service
+
+5. Update Nginx configs
+------------------------
+sudo nano /etc/nginx/sites-available/WhatsappGroup_API.conf
+cd /etc/nginx/sites-enabled/
+sudo rm WhatsappGroup_API.conf
+sudo ln /etc/nginx/sites-available/WhatsappGroup_API.conf /etc/nginx/sites-enabled/
+sudo systemctl restart nginx.service
+
+Below comments used to install python flask in the aws server:
+==============================================================
+    1  ls
+    2  sudo apt-get update
+    3  sudo apt install python3 python3-pip
+    4  sudo apt-get install python3-venv
+    5  ls
+    6  mkdir WhatsappGroups
+    7  cd WhatsappGroups/
+    8  git clone https://github.com/nk-mohan/whatsgrouprestapi.git
+    9  git config --local --unset credential.helper
+   10  git config --global --unset credential.helper
+   11  git clone https://github.com/nk-mohan/whatsgrouprestapi.git
+   12  ls
+   13  cd whatsgrouprestapi/
+   14  ls
+   15  virtualenv venv
+   16  sudo apt install virtualenv
+   17  source venv/bin/activate
+   18  ls
+   19  ls -a
+   20  virtualenv venv
+   21  sudo apt-get install python3-pip
+   22  sudo pip3 install virtualenv
+   23  virtualenv venv
+   24  python3 -m virtualenv venv
+   25  mkvirtualenv --python=python3 mynewenv
+   26  alias python=python3
+   27  alias pip=pip3
+   28  virtualenv venv
+   29  python -m virtualenv venv
+   30  python --version
+   31  python3 -V
+   32  sudo apt install python3-venv
+   33  python3 -m venv my-project-env
+   34  source my-project-env/bin/activate
+   35  pip install -r requirements.txt
+   36  pip install flask
+   37  pip install Flask-SQLAlchemy
+   38  pip install -r requirements.txt
+   39  pip install requirements.txt
+   40  python -m pip install -–upgrade pip
+   41  pip install -r requirements.txt
+   42  python3 -V
+   43  sudo apt install python3.7
+   44  python3 -V
+   45  python3.7 --version
+   46  pip install -r requirements.txt
+   47  python3.7 -m pip install -r requirements.txt
+   48  nano requirements.txt
+   49  cat requirements.txt
+   50  deactivate
+   51  cd ..
+   52  git pull
+   53  cd whatsgrouprestapi/
+   54  git pull
+   55  source my-project-env/bin/activate
+   56  cat requirements.txt
+   57  pip install -r requirements.txt
+   58  python3.7 -m pip install -r requirements.txt
+   59  sudo apt-get -y install python3-pip
+   60  python3.7 -m pip install -r requirements.txt
+   61  pip install flask-jwt-extended
+   62  pip install validators
+   63  pip install -U setuptools
+   64  pip install flasgger
+   65  pip install -U Flask-SQLAlchemy
+   66  flask -v
+   67  flask -version
+   68  flask --version
+   69  pip install gunicorn
+   70  flask run
+   71  pip install python-dotenv
+   72  flask run
+   73  python -m flask run
+   74  ls
+   75  cd WhatsappGroups/
+   76  ls
+   77  cd whatsgrouprestapi/
+   78  ls
+   79  ls -a
+   80  echo "export SECRET_KEY=dev" > .env
+   81  cat .env
+   82  source my-project-env/bin/activate
+   83  flask run
+   84  deactivate
+   85  git pull
+   86  source my-project-env/bin/activate
+   87  flask run
+   88  flask shell
+   89  flask run
+   90  gunicorn src.runner:application
+   91  cd my-project-env/
+   92  ls
+   93  cd bin/
+   94  pwe
+   95  pwd
+   96  cd
+   97  cd WhatsappGroups/whatsgrouprestapi/
+   98  ls
+   99  cat /etc/systemd/system/flaskapp.service
+  100  sudo systemctl start flaskapp
+  101  sudo systemctl enable flaskapp
+  102  sudo apt-get install nginx
+  103  sudo nano /etc/nginx/sites-available/app
+  104  sudo rm -rf default
+  105  sudo systemctl start nginx
+  106  sudo systemctl enable nginx
+  107  cd WhatsappGroups/whatsgrouprestapi/
+  108  source my-project-env/bin/activate
+  109  gunicorn src.runner:application
+  110  git pull
+  111  flash shell
+  112  flash dhell
+  113  python3 -m flash dhell
+  114  flask shell
+  115  gunicorn src.runner:application
+  116  sudo systemctl status nginx
+  117  sudo systemctl stop nginx
+  118  sudo nano /etc/systemd/system/flaskapp.service
+  119  sudo systemctl start nginx
+  120  sudo systemctl enable nginx
+  121  cd /etc/nginx/sites-enabled
+  122  ls
+  123  sudo apt-get install gunicorn3
+  124  ls
+  125  cat default
+  126  cd ..
+  127  ls
+  128  cd sites-available/
+  129  ls
+  130  cat app
+  131  cd
+  132  cd WhatsappGroups/whatsgrouprestapi/
+  133  ls
+  134  ls -a
+  135  sudo tail -F /var/log/nginx/error.log
+  136  cd /etc/nginx/sites-enabled
+  137  ls
+  138  nano whatsgrouprestapi
+  139  cd WhatsappGroups/whatsgrouprestapi/
+  140  source my-project-env/bin/activate
+  141  gunicorn src.runner:application
+  142  sudo systemctl stop flaskapp
+  143  gunicorn src.runner:application
+  144  sudo systemctl stop nginx
+  145  gunicorn src.runner:application
+  146  sudo netstat -nlp | grep:80
+  147  sudo netstat -nlp | grep:8000
+  148  sudo netstat -nlp | grep:80
+  149  sudo netstat -nlp | grep:8
+  150  sudo netstat -nlp
+  151  sudo fuser -k 8000/tcp
+  152  sudo apt-get install net-tools
+  153  sudo fuser -k 8000/tcp
+  154  sudo netstat -nlp
+  155  gunicorn src.runner:application
+  156  sudo tail -F /var/log/nginx/error.log
+  157  sudo systemctl stop WhatsappGroup_API.service
+  158  sudo systemctl stop nginx.service
+  159  cd WhatsappGroups/whatsgrouprestapi/
+  160  git pull
+  161  source my-project-env/bin/activate
+  162  flask shell
+  163  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  164  sudo fuser -k 3000/tcp
+  165  flask shell
+  166  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  167  sudo apt-get install python3-pymysql
+  168  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  169  flask shell
+  170  cd WhatsappGroups/whatsgrouprestapi/
+  171  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  172  source my-project-env/bin/activate
+  173  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  174  cd WhatsappGroups/whatsgrouprestapi/
+  175  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  176  source my-project-env/bin/activate
+  177  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  178  pip install gunicorn
+  179  sudo /etc/systemd/system/WhatsappGroup_API.service
+  180  nano /etc/systemd/system/WhatsappGroup_API.service
+  181  sudo nano /etc/systemd/system/WhatsappGroup_API.service
+  182  cat /etc/systemd/system/WhatsappGroup_API.service
+  183  ls
+  184  sudo systemctl start WhatsappGroup_API.service
+  185  sudo systemctl stop WhatsappGroup_API.service
+  186  sudo systemctl enable WhatsappGroup_API.service
+  187  sudo apt install nginx
+  188  sudo nano /etc/nginx/sites-available/WhatsappGroup_API.conf
+  189  sudo /etc/nginx/sites-enab
+  190  sudo nano /etc/systemd/system/WhatsappGroup_API.service
+  191  ls
+  192  sudo systemctl enable WhatsappGroup_API.service
+  193  sudo systemctl restart nginx.service
+  194  journalctl -xe
+  195  sudo nano /etc/nginx/sites-available/WhatsappGroup_API.conf
+  196  ls
+  197  cd /etc/nginx/sites-enabled/
+  198  ls
+  199  sudo rm WhatsappGroup_API.conf
+  200  sudo ln /etc/nginx/sites-available/WhatsappGroup_API.conf /etc/nginx/sites-enabled/
+  201  ls
+  202  sudo systemctl restart nginx.service
+  203  journalctl -xe
+  204  sudo fuser -k 3000/tcp
+  205  sudo systemctl restart nginx.service
+  206  sudo systemctl restart WhatsappGroup_API.service
+  207  sudo systemctl WhatsappGroup_API.service
+  208  sudo systemctl status WhatsappGroup_API.service
+  209  sudo nano /etc/nginx/sites-available/WhatsappGroup_API.conf
+  210  sudo nano /etc/systemd/system/WhatsappGroup_API.service
+  211  cd WhatsappGroups/whatsgrouprestapi/
+  212  sudo systemctl restart nginx.service
+  213  sudo systemctl restart WhatsappGroup_API.service
+  214  systemctl daemon-reload
+  215  sudo systemctl restart WhatsappGroup_API.service
+  216  sudo systemctl daemon-reload
+  217  sudo systemctl restart WhatsappGroup_API.service
+  218  sudo systemctl status WhatsappGroup_API.service
+  219  ls
+  220  history
+  221  cd WhatsappGroups/whatsgrouprestapi/
+  222  source my-project-env/bin/activate
+  223  flash shell
+  224  flask shell
+  225  git pull
+  226  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  227  cd WhatsappGroups/whatsgrouprestapi/
+  228  source my-project-env/bin/activate
+  229  git pull
+  230  flask shell
+  231  sudo apt-get install python3-pymysql
+  232  cd WhatsappGroups/whatsgrouprestapi/
+  233  source my-project-env/bin/activate
+  234  sudo apt-get install python3-pymysql
+  235  sudo pip install PyMySQL
+  236  sudo pip3 install PyMySQL
+  237  pip install PyMySQL
+  238  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  239  flask shell
+  240  cd WhatsappGroups/whatsgrouprestapi/
+  241  source my-project-env/bin/activate
+  242  flask shell
+  243  cd WhatsappGroups/whatsgrouprestapi/
+  244  source my-project-env/bin/activate
+  245  flask shell
+  246  git pull
+  247  flask shell
+  248  git pull
+  249  flask shell
+  250  cd WhatsappGroups/whatsgrouprestapi/
+  251  source my-project-env/bin/activate
+  252  git pull
+  253  flask shell
+  254  pip install sqlalchemy-utils
+  255  flask shell
+  256  git pull
+  257  flask shell
+  258  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  259  git pull
+  260  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  261  flask shell
+  262  cd WhatsappGroups/whatsgrouprestapi/
+  263  source my-project-env/bin/activate
+  264  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  265  git pull
+  266  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  267  git pull
+  268  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  269  cd WhatsappGroups/whatsgrouprestapi/
+  270  git pull
+  271  source my-project-env/bin/activate
+  272  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  273  git pull
+  274  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  275  git pull
+  276  gunicorn -w 2 -b 0.0.0.0:3000 src.runner:application
+  277  cat /etc/nginx/sites-available/WhatsappGroup_API.conf
+  278  cd WhatsappGroups/whatsgrouprestapi/
+  279  source my-project-env/bin/activate
+  280  sudo nano /etc/nginx/sites-available/WhatsappGroup_API.conf
+  281  cd /etc/nginx/sites-enabled/
+  282  sudo rm WhatsappGroup_API.conf
+  283  sudo ln /etc/nginx/sites-available/WhatsappGroup_API.conf /etc/nginx/sites-enabled/
+  284  sudo systemctl restart nginx.service
