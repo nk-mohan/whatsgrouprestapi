@@ -6,9 +6,9 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    device_id = db.Column(db.Text, nullable=False)
-    device_os_version = db.Column(db.Text, nullable=False)
-    device_model = db.Column(db.Text, nullable=False)
+    device_id = db.Column(db.String(600), nullable=False)
+    device_os_version = db.Column(db.String(600), nullable=False)
+    device_model = db.Column(db.String(600), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
 
     def __repr__(self):
@@ -17,9 +17,9 @@ class User(db.Model):
 class Group(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.Text, nullable=False)
-    link = db.Column(db.Text, unique=True, nullable=False)
-    category = db.Column(db.Text, nullable=False)
+    description = db.Column(db.String(600), nullable=False)
+    link = db.Column(db.String(600), unique=True, nullable=False)
+    category = db.Column(db.String(600), nullable=False)
     views_count = db.Column(db.Integer, nullable=False, default=0)
     report_count = db.Column(db.Integer, nullable=False, default=0)
     created_at = db.Column(db.DateTime, default=datetime.now())
