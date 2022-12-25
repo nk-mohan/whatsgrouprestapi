@@ -9,7 +9,7 @@ from flasgger import swag_from
 
 whatsgroups = Blueprint("whatsgroups", __name__, url_prefix="/api/v1/whatsgroups")
 
-@whatsgroups.post('/')
+@whatsgroups.post('/create')
 @jwt_required()
 @swag_from("./docs/whatsgroups/create_group.yaml")
 def groups():
@@ -141,7 +141,7 @@ def update_report(id):
 
     return jsonify({"message": "This group is reported"}), HTTP_201_CREATED
 
-@whatsgroups.get("/trending/")
+@whatsgroups.get("/trending")
 @jwt_required()
 @swag_from("./docs/whatsgroups/get_trending_groups.yaml")
 def get_trending_groups():
