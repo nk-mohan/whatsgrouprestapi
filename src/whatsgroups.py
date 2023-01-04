@@ -173,7 +173,7 @@ def get_trending_groups():
     return jsonify({"data": data, "meta": meta}), HTTP_200_OK
 
 
-@whatsgroups.get("/whatsgroups/<string:search_name>")
+@whatsgroups.get("/<string:search_name>")
 @jwt_required()
 @swag_from("./docs/whatsgroups/get_groups_by_search.yaml")
 def get_groups_by_search(search_name):
