@@ -173,6 +173,37 @@ def get_trending_groups():
     return jsonify({"data": data, "meta": meta}), HTTP_200_OK
 
 
+@whatsgroups.get("/whatsgroups/<string:search_name>")
+@jwt_required()
+@swag_from("./docs/whatsgroups/get_groups_by_search.yaml")
+def get_groups_by_search(search_name):
+    page = request.args.get('page', 1, type=int)
+    per_page = request.args.get('per_page', 5, type=int)
+
+    groups = Group.query.filter(Group.title.contains(search_name), Group.report_count < 100).order_by(Group.created_at.desc()).paginate(page=page, per_page=per_page)
+
+    data = []
+
+    for group in groups.items:
+        data.append({
+            "id": group.id,
+            "title": group.title,
+            "description": group.description,
+            "link": group.link,
+            "category": group.category,
+            "views_count": group.views_count,
+            "report_count": group.report_count,
+            "created_at": group.created_at
+        })
+
+    meta = {
+        "current_page": groups.page,
+        "total_pages": groups.pages,
+        "total_count": groups.total
+    }
+
+    return jsonify({"data": data, "meta": meta}), HTTP_200_OK
+
 @whatsgroups.get("/category/<string:category_name>")
 @jwt_required()
 @swag_from("./docs/category/get_groups_by_category.yaml")
